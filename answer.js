@@ -51,7 +51,7 @@ function validateUsername(username){
     } else if(username.includes(" ")) {
         return "No Space Allowed";
     } else if(username.toLowerCase().includes("admin")){
-        return "Reseved Word";
+        return "Reserved Word";
 
     }else {
         return "Available"
@@ -65,3 +65,26 @@ function validateUsername(username){
 // console.log(validateUsername("rahim islam"));
 // console.log(validateUsername("superadmin99"));
 // console.log(validateUsername("Admin_Rahim"));
+
+
+
+// Question No. 4
+
+// Write a function getCngFare(distance, isNight, waitingMinutes) that returns the total fare in taka.
+
+
+function getCngFare(distance, isNight = false, waitingMinutes = 0) {
+    let fare = 50;
+
+    if(distance > 2 ) {
+        fare = fare + (distance - 2) * 15;
+    }
+
+    fare = fare + waitingMinutes * 2;
+
+    if(isNight) {
+        fare = fare * 1.2;
+
+    }
+    return fare;
+}
