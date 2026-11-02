@@ -88,3 +88,45 @@ function getCngFare(distance, isNight = false, waitingMinutes = 0) {
     }
     return fare;
 }
+
+// console.log(getCngFare(2));
+
+
+
+// Question No. 5
+
+// Write an arrow function getChaseVerdict(target, scored, ballsLeft) for a cricket run chase.
+
+const getChaseVerdict = (target, scored, ballsLeft) => {
+    const runsLeft = target - scored;  
+
+    if(runsLeft <= 0) {
+        return "Won";
+
+    } else if (ballsLeft <= 0) {
+        return "Lost";
+    }
+
+    const requiredRunRate = (runsLeft / ballsLeft) * 6;
+
+    let verdict;
+
+    if(requiredRunRate <= 6) {
+        verdict = "Comfortable";
+
+    } else if(requiredRunRate <= 12) {
+        verdict = "Tough";
+
+    } else {
+        verdict = "Almost Impossible";
+    }
+
+    return `Need ${runsLeft} runs in ${ballsLeft} balls | ${verdict}`;
+}
+
+// console.log(getChaseVerdict(200, 200, 12));
+// console.log(getChaseVerdict(200, 190, 0));
+// console.log(getChaseVerdict(200, 190, 12));
+// console.log(getChaseVerdict(100, 80, 12));
+// console.log(getChaseVerdict(100, 70, 12));
+console.log(getChaseVerdict(150, 149, 1));
